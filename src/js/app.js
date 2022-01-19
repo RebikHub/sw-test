@@ -6,8 +6,6 @@ console.log('app started');
 const server = new Server();
 const load = new Loading(server);
 
-load.events();
-
 (async () => {
   if (navigator.serviceWorker) {
     window.addEventListener('load', async () => {
@@ -20,3 +18,5 @@ load.events();
     });
   }
 })();
+
+load.events();

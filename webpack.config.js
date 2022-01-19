@@ -13,8 +13,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, '/dist'),
-    hot: true,
-    open: true,
+    // open: true,
     compress: true,
     port: 8888
   },
@@ -56,7 +55,6 @@ module.exports = {
     new InjectManifest({
         swSrc: './src/js/service.worker.js',
         swDest: '/service-worker.js',
-        // Any other config if needed.
       }),
   ],
 };

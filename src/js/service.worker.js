@@ -10,7 +10,7 @@ import {
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { precacheAndRoute } from 'workbox-precaching';
 
-precacheAndRoute(self.__WB_MANIFEST);
+// precacheAndRoute(self.__WB_MANIFEST);
 
 // Cache page navigations (html) with a Network First strategy
 registerRoute(
