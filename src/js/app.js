@@ -6,14 +6,13 @@ console.log('app started');
 const server = new Server();
 const load = new Loading(server);
 
-// load.events();
+load.events();
 
 (async () => {
-  if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker) {
     window.addEventListener('load', async () => {
       try {
-        const reg = await navigator.serviceWorker.register('./service.worker.js');
-        console.log(reg);
+        await navigator.serviceWorker.register('/service-worker.js');
         console.log('sw registered');
       } catch (e) {
         console.log(e);
@@ -21,5 +20,3 @@ const load = new Loading(server);
     });
   }
 })();
-
-load.events();
