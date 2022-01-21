@@ -7,25 +7,21 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   target: 'web',
-  entry: {
-    'app': path.resolve(__dirname, 'src/index.js'),
-    'service-worker': path.resolve(__dirname, 'src/js/service.worker.js'),
-  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
   module: {
     rules: [
-      {
-        test: /service.worker\.js$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-          },
-        }
-      },
+      // {
+      //   test: /\.worker\.js$/,
+      //   use: {
+      //     loader: 'file-loader',
+      //     options: {
+      //       name: '[name].[ext]',
+      //     },
+      //   }
+      // },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -84,7 +80,7 @@ module.exports = {
     }),
     new InjectManifest({
       swSrc: './src/js/service.worker.js',
-      swDest: 'dist/service-worker.js',
+      swDest: 'service-worker.js',
     }),
     new CleanWebpackPlugin(),
   ],
